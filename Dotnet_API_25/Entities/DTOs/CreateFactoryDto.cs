@@ -1,0 +1,10 @@
+﻿namespace Dotnet_API_25.Entities.DTOs
+{
+    public class CreateFactoryDto
+    {
+        public string FactoryName { get; set; } = string.Empty;
+        public DateTime EstablishDate { get; set; } = DateTime.Now;
+        public string City { get; set; } = string.Empty;
+        public bool isOpened { get; set; } = false;
+    }
+}
