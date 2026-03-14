@@ -21,11 +21,15 @@ namespace Dotnet_API_25.Repositories
                  _context.Factories.Remove(factory);
                 await _context.SaveChangesAsync();  
             }
+            return true;
         }
 
-        public async Task<IEnumerable<Factory>> GetAllFactory()
+        public async Task<IEnumerable<Factory>> GetAllFactory(int pageNumber,int pageSize)
         {
-            return await _context.Factories.ToListAsync();
+            return await _context.Factories
+                .Skip((pageNumber - 1)*pageSize)
+                .Take(pageSize)
+                .ToListAsync();
         }
 
         public Task<Factory?> GetFactoryById(int id)
@@ -37,6 +41,7 @@ namespace Dotnet_API_25.Repositories
         {
             _context.Factories.Update(updateFactory);
             await _context.SaveChangesAsync();
+          
         }
     }
 }
