@@ -8,9 +8,10 @@ namespace Dotnet_API_25.Mapping
     {
         public UserMappingProfile() 
         {
-            CreateMap<RegisterDto, User>();
+            CreateMap<RegisterDto, User>()
+                .ForMember(x => x.HashPassword, opt => opt.MapFrom(y => y.Password));
 
-            CreateMap<User, LoginDto>();
+     
         }
     }
 }
