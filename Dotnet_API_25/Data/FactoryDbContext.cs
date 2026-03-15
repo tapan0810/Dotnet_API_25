@@ -8,5 +8,7 @@ namespace Dotnet_API_25.Data
         public FactoryDbContext(DbContextOptions<FactoryDbContext> options) : base(options) { }
 
         public DbSet<Factory>Factories =>Set<Factory>();
+
+        public DbSet<User> Users => Set<User>();
     }
 }
